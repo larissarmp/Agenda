@@ -11,7 +11,7 @@
         require_once './index.php';
     }   
     if($pg == "contato"){
-        require_once './Form/listarContatos.php';
+        require_once './Form/DetalharContatos.php';
         
     }
     
