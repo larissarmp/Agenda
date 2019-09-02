@@ -75,7 +75,12 @@
     <input type="text" name="nome"><br>
     <input type="submit" name="buscar" value="Buscar"></p>
 </form>
-
+    
+<form method="post" action="ListarContato.php">
+    <hr>
+    <label for="nome">Listagem de contatos</label>
+    <input type="submit" value="Listar">
+</form>
 
 <table border="1">
   <tr> 
