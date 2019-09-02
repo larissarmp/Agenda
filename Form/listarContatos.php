@@ -10,6 +10,17 @@
         $contato = new Contato();
     }
     
+      if(isset($_POST['btalterar'])){
+        $id = $_POST["id"];
+        $nome =$_POST['nome'];
+        $telefone =$_POST['telefone'];
+        $conexao = new Conexao();
+        $dalContato = new DALContato($conexao);
+        $contato = new Contato($id, $nome, $telefone);
+        $dalContato->Alterar($contato);
+        $contato = new Contato();
+    }
+
     if(isset($_GET["op"])&&$_GET["op"] == "excluir"){
         $conexao = new Conexao();
         $dalContato = new DALContato($conexao);
