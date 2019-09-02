@@ -7,6 +7,7 @@
         $dalContato = new DALContato($conexao);
         $contato = new Contato(0, $nome, $telefone);
         $dalContato->Inserir($contato);
+        $contato = new Contato();
     }
     
     if(isset($_GET["op"])&&$_GET["op"] == "excluir"){
@@ -34,12 +35,23 @@
         
     }
 ?>
-<form method="post">
+<form method="post" action="index.php?pg=contato&op=listar">
     <p><label for="nome">Nome    </label><br>
     <input type="text" name="nome" value="<?php echo $contato->getNome();?>"></p>
     <p><label for="nome">Telefone</label><br>
         <input type="text" name="telefone" value="<?php echo $contato->getTelefone();?>"><br>
-    <input type="submit" name="cadastrar" value="Inserir"></p>
+        <?php 
+        if($contato->getId() == 0){
+        ?>
+        <input type="submit" name="cadastrar" value="Inserir"></p>
+        <?php
+        }  else {
+        ?>
+             <input type="submit" name="btalterar" value="Alterar">
+             <input type="submit" name="tbcancelar" value="Cancelar">
+             <input type="hidden" name="id" value="<?php echo $contato->getId();?>"
+        <?php }
+        ?>
 </form>
 <?php
     $valor = "";
